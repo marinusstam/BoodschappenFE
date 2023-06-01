@@ -1,5 +1,40 @@
+<h1>Opvoeren artikelen</h1>
+
+<table class="table2">
 <input type="text" [(ngModel)]="boodschappen.naam"
-       name="artikel" placeholder="naam">
+       name="artikel" placeholder="Naam">
 <input type="text" [(ngModel)]="boodschappen.omschrijving"
        name="description" placeholder="Omschrijving">
+<input type="text" [(ngModel)]="boodschappen.prio"
+         name="description" placeholder="Altijd">
 <button (click)="add()">Toevoegen</button>
+</table>
+
+<br>
+<br>
+
+<!--<table class="table .table-striped .table-bordered .table-responsive table1">-->
+<table class="table .table-responsive table1">
+  <tr>
+  </tr>
+  <tr>
+    <th scope="col">Naam</th>
+    <th scope="col">Omschrijving</th>
+    <th scope="col">Altijd</th>
+    <th scope="col">Verw.</th>
+<!--    <td><h4>Naam</h4></td>-->
+<!--    <td><h4>Omschrijving</h4></td>-->
+<!--    <td><h4>Altijd</h4></td>-->
+<!--    <td><h4>Verwijderen</h4></td>-->
+  </tr>
+  <tr *ngFor="let artikel of sortedArtikelen">
+<!--    <th scope="row"></th>-->
+    <td>{{artikel.naam}}</td>
+    <td>{{artikel.omschrijving}}</td>
+    <td>{{artikel.prio}}</td>
+    <td><button (click)="delete(artikel.id)">x</button></td>
+  </tr>
+</table>
+
+
+
