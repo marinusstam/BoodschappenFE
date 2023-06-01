@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Boodschappen } from 'src/app/boodschappen';
+import { Artikel } from 'src/app/model/artikel';
 
 @Component({
   selector: 'app-lijstje-form',
@@ -7,13 +7,13 @@ import { Boodschappen } from 'src/app/boodschappen';
   styleUrls: ['./lijstje-form.component.css']
 })
 export class LijstjeFormComponent {
-  sortedArtikelen: Boodschappen[] = [];
-  artikelen: Boodschappen[] = [];
+  sortedArtikelen: Artikel[] = [];
+  artikelen: Artikel[] = [];
   artikelService: any;
   ngOnInit(): void { this.getAll(); }
   getAll() {
     this.artikelService.getAll().subscribe(
-        (data: Boodschappen[]) => {
+        (data: Artikel[]) => {
         this.artikelen  = data
         this.sortedArtikelen = this.artikelen.sort((a,b)=>-a.prio.localeCompare(b.prio))
       }

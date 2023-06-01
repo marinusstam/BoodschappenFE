@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Boodschappen } from 'src/app/boodschappen';
 import { BoodschappenService } from 'src/app/boodschappen.service';
 import { Artikel } from 'src/app/model/artikel';
 
@@ -9,7 +8,7 @@ import { Artikel } from 'src/app/model/artikel';
   styleUrls: ['./artikel-list.component.css']
 })
 export class ArtikelListComponent implements OnInit {
-  artikelen: Boodschappen[] = [];
+  artikelen: Artikel[] = [];
   ngOnInit(): void { this.getAll(); }
   constructor(public artikelService: BoodschappenService) {}
   getAll() {

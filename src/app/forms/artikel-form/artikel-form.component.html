@@ -5,6 +5,8 @@
        name="artikel" placeholder="Naam">
 <input type="text" [(ngModel)]="boodschappen.omschrijving"
        name="description" placeholder="Omschrijving">
+<input type="text" [(ngModel)]="boodschappen.categorie"
+         name="description" placeholder="Categorie">
 <input type="text" [(ngModel)]="boodschappen.prio"
          name="description" placeholder="Altijd">
 <button (click)="add()">Toevoegen</button>
@@ -20,6 +22,7 @@
   <tr>
     <th scope="col">Naam</th>
     <th scope="col">Omschrijving</th>
+    <th scope="col">Categorie</th>
     <th scope="col">Altijd</th>
     <th scope="col">Verw.</th>
 <!--    <td><h4>Naam</h4></td>-->
@@ -31,6 +34,7 @@
 <!--    <th scope="row"></th>-->
     <td>{{artikel.naam}}</td>
     <td>{{artikel.omschrijving}}</td>
+    <td>{{artikel.categorie}}</td>
     <td>{{artikel.prio}}</td>
     <td><button (click)="delete(artikel.id)">x</button></td>
   </tr>

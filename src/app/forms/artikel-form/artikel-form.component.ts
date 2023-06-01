@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Boodschappen } from 'src/app/boodschappen';
+import { Artikel } from 'src/app/model/artikel';
 import { BoodschappenService } from 'src/app/boodschappen.service';
 import { ArtikelListComponent } from 'src/app/lists/artikel-list/artikel-list.component';
 
@@ -9,7 +9,7 @@ import { ArtikelListComponent } from 'src/app/lists/artikel-list/artikel-list.co
   styleUrls: ['./artikel-form.component.css']
 })
 export class ArtikelFormComponent implements OnInit {
-  boodschappen = new Boodschappen();
+  boodschappen = new Artikel();
   // @Input() artikelList!: ArtikelListComponent;
   constructor(public artikelService: BoodschappenService) { }
   add() {
@@ -17,8 +17,8 @@ export class ArtikelFormComponent implements OnInit {
       () => this.getAll()
     )
   }
-  sortedArtikelen: Boodschappen[] = [];
-  artikelen: Boodschappen[] = [];
+  sortedArtikelen: Artikel[] = [];
+  artikelen: Artikel[] = [];
   ngOnInit(): void { this.getAll(); }
     getAll() {
     this.artikelService.getAll().subscribe(

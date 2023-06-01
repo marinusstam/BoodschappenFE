@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Artikel } from './model/artikel';
 import {HttpClient} from "@angular/common/http";
-import { Boodschappen } from './boodschappen';
+import { Artikel } from 'src/app/model/artikel';
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +8,10 @@ import { Boodschappen } from './boodschappen';
 export class BoodschappenService {
   constructor(public http: HttpClient) { }
   getAll() {
-    return this.http.get<Boodschappen[]>(
+    return this.http.get<Artikel[]>(
       'http://localhost:8080/artikel');
   }
-  save(boodschappen: Boodschappen) {
+  save(boodschappen: Artikel) {
     return this.http.post(
       'http://localhost:8080/artikel', boodschappen);
   }
