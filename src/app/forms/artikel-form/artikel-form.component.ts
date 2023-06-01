@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Artikel } from 'src/app/model/artikel';
-import { BoodschappenService } from 'src/app/boodschappen.service';
 import { ArtikelListComponent } from 'src/app/lists/artikel-list/artikel-list.component';
+import { ArtikelService } from 'src/app/services/Artikel/artikel.service';
 
 @Component({
   selector: 'app-artikel-form',
@@ -11,7 +11,7 @@ import { ArtikelListComponent } from 'src/app/lists/artikel-list/artikel-list.co
 export class ArtikelFormComponent implements OnInit {
   boodschappen = new Artikel();
   // @Input() artikelList!: ArtikelListComponent;
-  constructor(public artikelService: BoodschappenService) { }
+  constructor(public artikelService: ArtikelService) { }
   add() {
     this.artikelService.save(this.boodschappen).subscribe(
       () => this.getAll()

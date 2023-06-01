@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import { Artikel } from 'src/app/model/artikel';
+import { Artikel } from '../../model/artikel';
 
 @Injectable({
   providedIn: 'root'
 })
-export class BoodschappenService {
+export class ArtikelService {
   constructor(public http: HttpClient) { }
   getAll() {
     return this.http.get<Artikel[]>(

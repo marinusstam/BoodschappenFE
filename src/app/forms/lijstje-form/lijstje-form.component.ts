@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Artikel } from 'src/app/model/artikel';
+import { Lijstje } from 'src/app/model/lijstje';
+import { LijstjeService } from 'src/app/services/Lijstje/lijstje.service';
 
 @Component({
   selector: 'app-lijstje-form',
@@ -7,16 +8,17 @@ import { Artikel } from 'src/app/model/artikel';
   styleUrls: ['./lijstje-form.component.css']
 })
 export class LijstjeFormComponent {
-  sortedArtikelen: Artikel[] = [];
-  artikelen: Artikel[] = [];
-  artikelService: any;
+  sortedLijstjes: Lijstje[] = [];
+  constructor(public lijstjesService: LijstjeService) { }
+  lijstjes: Lijstje[] = [];
   ngOnInit(): void { this.getAll(); }
   getAll() {
-    this.artikelService.getAll().subscribe(
-        (data: Artikel[]) => {
-        this.artikelen  = data
-        this.sortedArtikelen = this.artikelen.sort((a,b)=>-a.prio.localeCompare(b.prio))
+    this.lijstjesService.getAll().subscribe(
+        (data: Lijstje[]) => {
+        this.lijstjes  = data
+        this.sortedLijstjes = this.lijstjes.sort(
+          (a,b)=>a.naam.localeCompare(b.naam) || a.categorie.localeCompare(b.categorie))
       }
     )}
- 
 }
+

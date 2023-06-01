@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BoodschappenService } from 'src/app/boodschappen.service';
 import { Artikel } from 'src/app/model/artikel';
+import { ArtikelService } from 'src/app/services/Artikel/artikel.service';
 
 @Component({
   selector: 'app-artikel-list',
@@ -10,7 +10,7 @@ import { Artikel } from 'src/app/model/artikel';
 export class ArtikelListComponent implements OnInit {
   artikelen: Artikel[] = [];
   ngOnInit(): void { this.getAll(); }
-  constructor(public artikelService: BoodschappenService) {}
+  constructor(public artikelService: ArtikelService) {}
   getAll() {
     this.artikelService.getAll().subscribe(
       data => this.artikelen = data

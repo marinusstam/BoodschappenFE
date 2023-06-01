@@ -1,19 +1,22 @@
-<h1>Aanmaken boodschappenlijst</h1>
+<h1>Boodschappenlijst</h1>
 
-<!--<table class="table .table-striped .table-bordered .table-responsive table1">-->
 <table class="table .table-responsive table1">
   <tr>
   </tr>
   <tr>
     <th scope="col">Naam</th>
+    <th scope="col">Categorie</th>
+    <th scope="col">Aantal</th>
+    <th scope="col">Artikel</th>
     <th scope="col">Omschrijving</th>
-    <th scope="col">Meenemen</th>
   </tr>
-  <tr *ngFor="let artikel of sortedArtikelen">
-    <!--    <th scope="row"></th>-->
-    <td>{{artikel.naam}}</td>
-    <td>{{artikel.omschrijving}}</td>
-    <td>{{artikel.prio}}</td>
+  <tr *ngFor="let lijstje of sortedLijstjes">
+    <td>{{lijstje.naam}}</td>
+    <td>{{lijstje.categorie}}</td>
+    <td>{{lijstje.aantal}}</td>
+    <td>{{lijstje.artikel}}</td>
+    <td>{{lijstje.omschrijving}}</td>
+
   </tr>
 </table>
 

@@ -1,6 +1,6 @@
-import { Artikel} from 'src/app/model/artikel';
+import { Artikel} from '../../model/artikel';
 
-describe('Boodschappen', () => {
+describe('Artikel', () => {
   it('should create an instance', () => {
     expect(new Artikel()).toBeTruthy();
   });
