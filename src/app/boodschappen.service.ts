@@ -10,14 +10,14 @@ export class BoodschappenService {
   constructor(public http: HttpClient) { }
   getAll() {
     return this.http.get<Boodschappen[]>(
-      'http://localhost:8081/artikel');
+      'http://localhost:8080/artikel');
   }
   save(boodschappen: Boodschappen) {
     return this.http.post(
-      'http://localhost:8081/artikel', boodschappen);
+      'http://localhost:8080/artikel', boodschappen);
   }
   delete(id: number) {
     return this.http.delete(
-      'http://localhost:8081/artikel/' + id);
+      'http://localhost:8080/artikel/' + id);
   }
 }

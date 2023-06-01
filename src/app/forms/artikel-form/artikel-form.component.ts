@@ -10,12 +10,25 @@ import { ArtikelListComponent } from 'src/app/lists/artikel-list/artikel-list.co
 })
 export class ArtikelFormComponent implements OnInit {
   boodschappen = new Boodschappen();
-  @Input() artikelList!: ArtikelListComponent;
+  // @Input() artikelList!: ArtikelListComponent;
   constructor(public artikelService: BoodschappenService) { }
-  ngOnInit(): void {}
   add() {
     this.artikelService.save(this.boodschappen).subscribe(
-      () => this.artikelList.getAll()
+      () => this.getAll()
     )
   }
+  sortedArtikelen: Boodschappen[] = [];
+  artikelen: Boodschappen[] = [];
+  ngOnInit(): void { this.getAll(); }
+    getAll() {
+    this.artikelService.getAll().subscribe(
+      data => {
+        this.artikelen  = data
+        this.sortedArtikelen = this.artikelen.sort((a,b)=>-a.prio.localeCompare(b.prio))
+      }
+    )}
+  delete(id: number) {
+    this.artikelService.delete(id).subscribe(
+      () => this.getAll()
+    )}
 }
