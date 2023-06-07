@@ -17,7 +17,7 @@ export class LijstjeFormComponent {
         (data: Lijstje[]) => {
         this.lijstjes  = data
         this.sortedLijstjes = this.lijstjes.sort(
-          (a,b)=>a.naam.localeCompare(b.naam) || a.categorie.localeCompare(b.categorie))
+          (a,b)=>a.naam.localeCompare(b.naam) || a.categorie.localeCompare(b.categorie) || a.artikel.localeCompare(b.artikel) )
       }
     )}
 }

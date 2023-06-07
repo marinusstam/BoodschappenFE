@@ -13,6 +13,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { LijstjeFormComponent } from './forms/lijstje-form/lijstje-form.component';
 import { LijstjeListComponent } from './lists/lijstje-list/lijstje-list.component';
 import { HomeComponent } from './forms/home/home.component';
+import { LijstjeToevListComponent } from './lists/lijstje-toev-list/lijstje-toev-list.component';
+import { LijstjeToevFormComponent } from './forms/lijstje-toev-form/lijstje-toev-form.component';
 
 // @ts-ignore
 @NgModule({
@@ -24,7 +26,9 @@ import { HomeComponent } from './forms/home/home.component';
     ReceptFormComponent,
     LijstjeFormComponent,
     LijstjeListComponent,
-    HomeComponent
+    HomeComponent,
+    LijstjeToevListComponent,
+    LijstjeToevFormComponent
   ],
   imports: [
     BrowserModule,

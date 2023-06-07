@@ -4,4 +4,5 @@ export class Artikel {
   omschrijving: string = "";
   categorie: string = "";
   prio: string = "";
+  
 }

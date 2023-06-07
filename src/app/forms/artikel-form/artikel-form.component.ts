@@ -10,11 +10,20 @@ import { ArtikelService } from 'src/app/services/Artikel/artikel.service';
 })
 export class ArtikelFormComponent implements OnInit {
   boodschappen = new Artikel();
+  errorMessages = " ";
   // @Input() artikelList!: ArtikelListComponent;
   constructor(public artikelService: ArtikelService) { }
   add() {
-    this.artikelService.save(this.boodschappen).subscribe(
-      () => this.getAll()
+    this.artikelService.save(this.boodschappen).subscribe
+    (
+      () => {this.getAll()
+      this.errorMessages = " ", 
+      // this.boodschappen.naam =  " ",
+      // this.boodschappen.omschrijving = "  ",
+      // this.boodschappen.prio = "J", 
+      this.boodschappen.categorie = " "
+      },
+      error=>this.errorMessages=error.error
     )
   }
   sortedArtikelen: Artikel[] = [];
